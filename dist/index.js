@@ -1309,20 +1309,20 @@ module.exports = require("os");
 const core = __webpack_require__(470)
 const github = __webpack_require__(469)
 const axios = __webpack_require__(53)
-try {
-  const url = core.getInput('slack-url')
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  const notify = async () => {
+
+const main = async () => {
+  try {
+    const url = core.getInput('slack-url')
+    const payload = JSON.stringify(github.context.payload, undefined, 2)
     await axios.post(url, {
       text: {
         type: 'mrkdown',
-        text: `A new issue was created.\n(${payload.title})[${payload.url}]`
+        text: `A new issue was created.\n(${payload.title})[${payload.url}]`,
       },
     })
+  } catch (error) {
+    core.setFailed(error.message)
   }
-  notify()
-} catch (error) {
-  core.setFailed(error.message)
 }
 
 
