@@ -6,14 +6,14 @@ async function main() {
   try {
     const url = core.getInput('slack-url')
     const payload = github.context.payload
-    const message = `A new issue was created.\n(${payload.issue.title})[${payload.issue.url}]`
-    console.log(url, payload.issue)
-    await axios.post(url, {
+    const message = `A new issue was created.\n(${payload.issue.title})[${payload.issues.url}]`
+    const res = await axios.post(url, {
       text: {
         type: 'mrkdown',
-        text: message ,
-      },
+        text: message 
+      }
     })
+    console.log(res)
   } catch (error) {
     core.setFailed(error.message)
   }
