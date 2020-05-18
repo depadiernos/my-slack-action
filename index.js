@@ -16,3 +16,5 @@ const main = async () => {
     core.setFailed(error.message)
   }
 }
+
+main()

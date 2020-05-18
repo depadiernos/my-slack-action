@@ -1325,6 +1325,8 @@ const main = async () => {
   }
 }
 
+main()
+
 
 /***/ }),
 
