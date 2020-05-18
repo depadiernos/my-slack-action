@@ -2,6 +2,7 @@ const core = require('@actions/core')
 const github = require('@actions/github')
 const axios = require('axios')
 
+async function main() {
   try {
     const url = core.getInput('slack-url')
     const payload = github.context.payload
@@ -15,3 +16,5 @@ const axios = require('axios')
     core.setFailed(error.message)
   }
 }
+
+main()
