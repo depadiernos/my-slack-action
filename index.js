@@ -9,10 +9,7 @@ async function main() {
     const message = `A new issue was created.\n(${payload.issue.title})[${payload.issue.url}]`
 
     const res = await axios.post(url, {
-      text: {
-        type: 'mrkdown',
-        text: message 
-      }
+      text: message
     })
     console.log(res)
   } catch (error) {
