@@ -1,0 +1,10 @@
+name: "Slack Github Action"
+description: "Send a Slack Notification via webhook on specific event"
+author: depadiernos
+inputs:
+  slack-url:
+    description: "Slack Webhook URL, required"
+    required: true
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
