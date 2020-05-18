@@ -5,9 +5,8 @@ const axios = require('axios')
 async function main() {
   try {
     const url = core.getInput('slack-url')
-    const _payload = JSON.stringify(github.context.payload, undefined, 2)
-    const payload = JSON.parse(_payload)
-    const message = `A new issue was created.\n(${payload.issue.title})[${payload.issues.url}]`
+    const payload = github.context.payload
+    const message = `A new issue was created.\n(${payload.issue.title})[${payload.issue.url}]`
 
     const res = await axios.post(url, {
       text: {
