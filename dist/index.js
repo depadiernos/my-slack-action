@@ -1310,7 +1310,7 @@ const core = __webpack_require__(470)
 const github = __webpack_require__(469)
 const axios = __webpack_require__(53)
 
-const main = async () => {
+(async () => {
   try {
     const url = core.getInput('slack-url')
     const payload = JSON.stringify(github.context.payload, undefined, 2)
@@ -1323,9 +1323,7 @@ const main = async () => {
   } catch (error) {
     core.setFailed(error.message)
   }
-}
-
-main()
+})()
 
 
 /***/ }),

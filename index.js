@@ -2,7 +2,7 @@ const core = require('@actions/core')
 const github = require('@actions/github')
 const axios = require('axios')
 
-const main = async () => {
+(async () => {
   try {
     const url = core.getInput('slack-url')
     const payload = JSON.stringify(github.context.payload, undefined, 2)
@@ -15,6 +15,4 @@ const main = async () => {
   } catch (error) {
     core.setFailed(error.message)
   }
-}
-
-main()
+})()
